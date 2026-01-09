@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carina & James | Wedding | Accommodation</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css" />
+
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <ul>
+      <li><a href="WeddingSite.html">Home</a></li>
+      <li><a href="Directions.html">Directions</a></li>
+      <li><a href="Accommodation.html">Accommodation</a></li>
+    </ul>
+  </nav>
+
+  <!-- ACCOMMODATION -->
+  <section class="section accommodation">
+    <h1 style="color: #bfa05c;">Accommodation</h1>
+    <p style="color: white; padding-bottom: 40px;">We recommend staying at the Strathaven Hotel for convenience, but here are some alternative options nearby.</p>
+
+    <h2 style="color: #bfa05c;">Alternative Accommodation Options</h2>
+    <div  style="padding-bottom: 40px" class="accommodation-options">
+      <div class="option-card">
+        <h3>Bamflatt Farm B&B</h3>
+        <p>About 1.8 miles away.</p>
+        <p>Address: Stonehouse Rd, Stonehouse, Strathaven ML10 6TA</p>
+        <p>Phone: 07740842289</p>
+      </div>
+      <div class="option-card">
+        <h3>Radstone Hotel</h3>
+        <p>6.4 miles from venue.</p>
+        <p>Address: Ayr Road, Larkhall, Lanarkshire ML9 2TZ</p>
+        <p>Phone: 01698 791111</p>
+      </div>
+    </div>
+
+    <h2 style="color: #bfa05c;">Request a Room at Strathaven Hotel</h2>
+    <p style="color: white">Rooms at Strathaven hotel are to be booked through us to be allocated as required. 
+      Unfortunately we cannot guarantee availability for all guests.
+      Rooms will be allocated on a first come first served basis. Please fill in the form below to request a room.
+      We will be in touch to confirm your booking.
+    </p>
+
+    <form class="accommodation-form" action="https://formspree.io/f/mgovgbej" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="text" name="Contact Number" placeholder="Contact Number" required>
+      <input type="number" name="rooms" placeholder="Number of Rooms" min="1" required>
+      <input type="number" name="guests" placeholder="Number of Guests" min="1" required>
+      <input type="text" name="roomType" placeholder="Room Type (single/twin/double)" required>
+      <textarea name="notes" placeholder="Extra beds are available at a cost of £25 each. Cots are available free of charge. Please outline requirements such as these in this comment box."></textarea>
+      <button type="submit" class="btn">Request Room</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div>
+      <div>
+        <h3>Get in Touch</h3>
+        <p>carinaandjames2027@gmail.com</p>
+      </div>
+    </div>
+    <p class="copyright">© Carina & James</p>
+  </footer>
+
+</body>
+</html>

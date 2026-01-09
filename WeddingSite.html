@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carina & James | Wedding</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css" />
+
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <ul>
+      <li><a href="WeddingSite.html">Home</a></li>
+      <li><a href="Directions.html">Directions</a></li>
+      <li><a href="Accommodation.html">Accommodation</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-overlay">
+      <h1 style="color: #bfa05c;">Carina & James</h1>
+      <p class="subtitle">Join us in celebrating our wedding day</p>
+      <p class="date">June 01, 2027 · Strathaven Hotel, South Lanarkshire</p>
+      <a href="RSVP.html" class="btn">RSVP</a>
+      <div id="countdown" class="countdown-timer"></div>
+    </div>
+  </section>
+
+
+  <!-- WEDDING DETAILS -->
+  <section class="section details" id="details">
+    <h2 style="color: #bfa05c;">Wedding Details</h2>
+    <div class="details-grid">
+      <div class="detail-card">
+        <h3>The Big Day</h3>
+        <p>June 01, 2027</p>
+        <p>Ceremony at 2:00 PM</p>
+      </div>
+      <div class="detail-card">
+        <h3>The Venue</h3>
+        <p>Strathaven Hotel</p>
+        <p>South Lanarkshire, ML10</p>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <!-- SCHEDULE -->
+  <section class="section schedule" id="schedule">
+    <h2 style="color: #bfa05c;">Event Schedule</h2>
+    <div class="schedule-grid">
+      <div class="schedule-card">
+        <h3>Guest Arrival</h3>
+        <p>1:00 PM</p>
+      </div>
+      <div class="schedule-card">
+        <h3>Ceremony</h3>
+        <p>2:00 PM</p>
+        <span>Ceremony Room</span>
+      </div>
+      <div class="schedule-card">
+        <h3>Drinks, canapés, photos</h3>
+        <p>2:30 PM</p>
+        <span>Bar Area/Outside</span>
+      </div>
+      <div class="schedule-card">
+        <h3>Meal</h3>
+        <p>5:00 PM</p>
+        <span>Main Hall</span>
+      </div>
+      <div class="schedule-card">
+        <h3>Turnaround for evening</h3>
+        <p>7:00 PM</p>
+        <span>Main Hall</span>
+      </div>
+      <div class="schedule-card">
+        <h3>Cake & first dance</h3>
+        <p>8:00 PM</p>
+        <span>Main Hall</span>
+      </div>
+      <div class="schedule-card">
+        <h3>Buffet</h3>
+        <p>9:30 PM</p>
+        <span>Main Hall</span>
+      </div>
+      <div class="schedule-card">
+        <h3>Music off</h3>
+        <p>12:00 PM</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="section gallery" id="gallery">
+    <h2 style="color: #bfa05c;">Photo Gallery</h2>
+    <div class="gallery-grid">
+      <img src="images\Banner image.jpg" alt="">
+      <img src="images\Strathaven-External.webp" alt="">
+      <img src="images\Strathaven+Hotel+Exterior.webp" alt="">
+      <img src="images\sign.jfif" alt="">
+      <img src="images\outside.jfif" alt="">
+      <img src="images\mainhall4.jfif" alt="">
+      <img src="images\mainhall3.jfif" alt="">
+      <img src="images\mainhall2.jfif" alt="">
+      <img src="images\mainhall1.jfif" alt="">
+      <img src="images\lobby2.jfif" alt="">
+      <img src="images\lobby.jfif" alt="">
+      <img src="images\headtable.jfif" alt="">
+      <img src="images\ceremonytable.jfif" alt="">
+      <img src="images\ceremonyroom.jfif" alt="">
+      <img src="images\candles.jfif" alt="">
+      <img src="images\bar.jfif" alt="">
+    </div>
+  </section>
+
+
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div>
+        <h3>Get in Touch</h3>
+        <p>carinaandjames2027@gmail.com</p>
+      </div>
+    </div>
+    <p class="copyright">© Carina & James</p>
+  </footer>
+
+  <script>
+    function updateCountdown() {
+      const weddingDate = new Date('June 1, 2027 14:00:00').getTime();
+      const now = new Date().getTime();
+      const timeRemaining = weddingDate - now;
+
+      if (timeRemaining > 0) {
+        const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+        document.getElementById('countdown').innerHTML = `
+          <div class="countdown-content">
+            <div class="countdown-unit">
+              <span class="countdown-number">${days}</span>
+              <span class="countdown-label">Days</span>
+            </div>
+            <div class="countdown-unit">
+              <span class="countdown-number">${hours}</span>
+              <span class="countdown-label">Hours</span>
+            </div>
+            <div class="countdown-unit">
+              <span class="countdown-number">${minutes}</span>
+              <span class="countdown-label">Minutes</span>
+            </div>
+            <div class="countdown-unit">
+              <span class="countdown-number">${seconds}</span>
+              <span class="countdown-label">Seconds</span>
+            </div>
+          </div>
+        `;
+      } else {
+        document.getElementById('countdown').innerHTML = '<p style="color: #bfa05c; font-size: 1.2rem; margin-top: 20px;">The wedding has begun!</p>';
+      }
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
