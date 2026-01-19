@@ -21,11 +21,31 @@ body {
 /* NAVIGATION */
 nav {
   position: fixed;
-  top: 1vh;
+  top: 0;
+  /* Changed from 1vh to 0 to look better on mobile */
   width: 100%;
   background: rgba(255, 255, 255, 0.95);
   z-index: 1000;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  /* Center content on desktop */
+  align-items: center;
+  min-height: 60px;
+}
+
+.menu-toggle {
+  display: none;
+  /* Hidden on desktop */
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--primary);
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 nav ul {
@@ -34,10 +54,54 @@ nav ul {
   justify-content: center;
   padding: 15px 0;
   margin: 0;
+  transition: max-height 0.3s ease-in-out;
 }
 
 nav li {
   margin: 0 20px;
+}
+
+@media (max-width: 768px) {
+  nav {
+    justify-content: space-between;
+    /* Space for logo if we had one, or just keeps toggle right */
+    padding: 0 20px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+    padding: 0;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+
+  nav li {
+    margin: 0;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+  }
+
+  nav li:last-child {
+    border-bottom: none;
+  }
+
+  nav a {
+    display: block;
+    padding: 15px;
+  }
 }
 
 nav a {
@@ -60,7 +124,7 @@ nav a:hover {
 
 .hero-overlay {
   height: 100%;
-  background: rgba(0,0,0,0.35);
+  background: rgba(0, 0, 0, 0.35);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -185,7 +249,8 @@ nav a:hover {
   align-items: center;
 }
 
-.guest-item input, .guest-item select {
+.guest-item input,
+.guest-item select {
   flex: 1;
 }
 
@@ -213,7 +278,7 @@ nav a:hover {
   background: var(--light);
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
@@ -260,6 +325,7 @@ copyright {
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
+
   .story-content,
   .details-grid,
   .schedule-grid,
@@ -273,6 +339,7 @@ copyright {
     font-size: 3rem;
   }
 }
+
 /* COUNTDOWN TIMER */
 .countdown-timer {
   margin-top: 50px;
