@@ -41,8 +41,8 @@ fileInput.addEventListener('change', (e) => {
 function handleFiles(files) {
     const newFiles = Array.from(files).filter(file => file.type.startsWith('image/'));
 
-    if (selectedFiles.length + newFiles.length > 10) {
-        alert("You can only upload a maximum of 10 photos at a time.");
+    if (selectedFiles.length + newFiles.length > 5) {
+        alert("You can only upload a maximum of 5 photos at a time.");
         return;
     }
 
