@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard | Carina & James</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css" />
+    <style>
+        body {
+            background-color: #f0f2f5;
+        }
+
+        .admin-container {
+            max-width: 1200px;
+            margin: 100px auto;
+            padding: 0 20px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .photo-card {
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .photo-info {
+            margin: 10px 0;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .actions {
+            margin-top: auto;
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 8px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .btn-approve {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .btn-delete {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .logout-btn {
+            background: #333;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            max-height: 90vh;
+            object-fit: contain;
+            margin-top: 5vh;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#" id="logout-link">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="admin-container">
+        <div class="header">
+            <h1>Pending Approvals</h1>
+            <span id="pending-count">0 Pending</span>
+        </div>
+
+        <div id="loading" style="text-align: center;">Loading photos...</div>
+        <div class="gallery-grid" id="pending-grid"></div>
+
+        <div class="header" style="margin-top: 4rem;">
+            <h1>Recently Approved</h1>
+        </div>
+        <div class="gallery-grid" id="approved-grid"></div>
+
+    </div>
+
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
+
+    <script type="module" src="js/admin.js"></script>
+</body>
+
+</html>

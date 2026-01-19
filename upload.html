@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upload Photos | Carina & James</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css" />
+    <style>
+        /* Inline styles for specific upload page needs, keeping main styles in css/styles.css */
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .upload-container {
+            max-width: 600px;
+            margin: 100px auto 50px;
+            padding: 2rem;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .upload-header h1 {
+            color: #bfa05c;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #666;
+        }
+
+        .form-group input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .file-drop-area {
+            border: 2px dashed #ddd;
+            border-radius: 4px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+
+        .file-drop-area:hover {
+            border-color: #bfa05c;
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .btn-submit {
+            background-color: #bfa05c;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+
+        .btn-submit:hover {
+            background-color: #a3884b;
+        }
+
+        .btn-submit:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        #progress-container {
+            display: none;
+            margin-top: 1rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+            height: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: #bfa05c;
+            width: 0%;
+            transition: width 0.3s;
+        }
+
+        #status-message {
+            margin-top: 1rem;
+            font-weight: 500;
+        }
+
+        .file-list {
+            margin-top: 1rem;
+            text-align: left;
+        }
+
+        .file-item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            padding: 5px 0;
+            border-bottom: 1px solid #eee;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Directions.html">Directions</a></li>
+            <li><a href="Accommodation.html">Accommodation</a></li>
+        </ul>
+    </nav>
+
+    <div class="upload-container">
+        <div class="upload-header">
+            <h1>Share Your Photos</h1>
+            <p>We'd love to see the wedding through your eyes!</p>
+        </div>
+
+        <form id="upload-form">
+            <div class="form-group">
+                <label for="uploader-name">Your Name (Optional)</label>
+                <input type="text" id="uploader-name" placeholder="John Doe">
+            </div>
+
+            <div class="form-group">
+                <div class="file-drop-area" id="drop-area">
+                    <p>Click to select photos or drag & drop here</p>
+                    <p style="font-size: 0.8rem; color: #999;">(Max 10 photos)</p>
+                    <input type="file" id="file-input" class="file-input" multiple accept="image/*">
+                </div>
+                <div class="file-list" id="file-list"></div>
+            </div>
+
+            <div id="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <p id="progress-text">Uploading...</p>
+            </div>
+
+            <button type="submit" class="btn-submit" id="submit-btn" disabled>Upload Photos</button>
+            <p id="status-message"></p>
+        </form>
+    </div>
+
+    <footer>
+        <p class="copyright">© Carina & James 2027</p>
+    </footer>
+
+    <!-- Main logic script type="module" needed for imports -->
+    <script type="module" src="js/upload.js"></script>
+</body>
+
+</html>
