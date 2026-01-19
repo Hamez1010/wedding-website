@@ -16,9 +16,15 @@ async function loadGallery() {
 
         const querySnapshot = await getDocs(q);
 
-        // If no photos yet, maybe show a message or just leave it
+        // If no photos yet, show a message
         if (querySnapshot.empty) {
             console.log("Check back after the wedding for photos.");
+            const emptyMsg = document.createElement('p');
+            emptyMsg.textContent = "Check back after the wedding for guest photos.";
+            emptyMsg.style.textAlign = "center";
+            emptyMsg.style.gridColumn = "1 / -1"; // Span all columns
+            emptyMsg.style.color = "white";
+            galleryGrid.appendChild(emptyMsg);
             return;
         }
 
