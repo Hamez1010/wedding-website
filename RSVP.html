@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Carina & James | Wedding </title>
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500&display=swap"
+    rel="stylesheet">
 
   <link rel="stylesheet" href="css/styles.css" />
- 
 
- </head>
- <body>
- <!-- RSVP -->
+
+</head>
+
+<body>
+  <!-- RSVP -->
   <section class="section rsvp" id="rsvp">
     <h2 style="color: #bfa05c;">RSVP</h2>
     <p style="padding-bottom: 20px; color: white;" class="rsvp-note">Kindly respond by April 1st, 2027</p>
@@ -22,7 +26,8 @@
       <input type="text" name="name" placeholder="Your Name" required>
       <input type="email" name="email" placeholder="Email Address" required>
       <input type="number" name="party" placeholder="Number in Party" required>
-      <input type="comment" name="further info" placeholder="Dietary requirements etc. (please specify which guest your comments pertain to)" required>
+      <input type="comment" name="further info"
+        placeholder="Dietary requirements etc. (please specify which guest your comments pertain to)" required>
 
       <div class="radio-group">
         <h4 style="color: white;">Will you be attending?</h4>
@@ -36,12 +41,12 @@
     </form>
   </section>
 
-    <!-- SCRIPTS -->
+  <!-- SCRIPTS -->
   <script>
     const partyInput = document.querySelector('input[name="party"]');
     const guestDetails = document.getElementById('guest-details');
 
-    partyInput.addEventListener('input', function() {
+    partyInput.addEventListener('input', function () {
       const num = parseInt(this.value);
       guestDetails.innerHTML = '';
       if (num > 0 && num <= 10) {  // limit to 10 to prevent abuse
@@ -65,25 +70,26 @@
     });
   </script>
 
- <!-- NAVIGATION -->
+  <!-- NAVIGATION -->
   <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="Directions.html">Directions</a></li>
       <li><a href="Accommodation.html">Accommodation</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
     </ul>
   </nav>
 
 </body>
 
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-content">
-      <div>
-        <h3>Get in Touch</h3>
-        <p>carinaandjames2027@gmail.com</p>
-      </div>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-content">
+    <div>
+      <h3>Get in Touch</h3>
+      <p>carinaandjames2027@gmail.com</p>
     </div>
-    <p class="copyright">© Carina & James</p>
-  </footer>
+  </div>
+  <p class="copyright">© Carina & James</p>
+</footer>
