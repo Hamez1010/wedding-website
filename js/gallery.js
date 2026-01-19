@@ -18,7 +18,7 @@ async function loadGallery() {
 
         // If no photos yet, maybe show a message or just leave it
         if (querySnapshot.empty) {
-            // console.log("No approved photos yet.");
+            console.log("Check back after the wedding for photos.");
             return;
         }
 
@@ -40,6 +40,25 @@ async function loadGallery() {
 
     } catch (error) {
         console.error("Error loading gallery:", error);
+        // User-facing error handling for missing index
+        if (error.message.includes("indexes?create_composite=")) {
+            const errorDiv = document.createElement('div');
+            errorDiv.style.color = "red";
+            errorDiv.style.padding = "20px";
+            errorDiv.style.textAlign = "center";
+            errorDiv.innerHTML = `
+                <p><strong>Admin Action Required:</strong> A Firestore Index is missing.</p>
+                <p><a href="${error.message.match(/https:\/\/console\.firebase\.google\.com[^\s]*/)[0]}" target="_blank" style="text-decoration:underline;">Click here to create the index</a></p>
+                <p>Status: ${error.message}</p>
+            `;
+            if (galleryGrid) galleryGrid.before(errorDiv);
+        } else {
+            const errorDiv = document.createElement('div');
+            errorDiv.style.color = "red";
+            errorDiv.style.textAlign = "center";
+            errorDiv.textContent = "Error loading photos. Please check the console.";
+            if (galleryGrid) galleryGrid.before(errorDiv);
+        }
     }
 }
 
