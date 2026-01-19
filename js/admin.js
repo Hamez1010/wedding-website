@@ -1,21 +1,19 @@
-import { auth, db, storage } from './firebase-config.js';
-import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { db, storage } from './firebase-config.js';
 import { collection, query, where, getDocs, doc, updateDoc, deleteDoc, orderBy } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 import { ref, deleteObject } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
 
 // Check authentication
-onAuthStateChanged(auth, (user) => {
-    if (!user) {
-        window.location.href = 'login.html';
-    } else {
-        loadPhotos();
-    }
-});
+if (sessionStorage.getItem('admin_auth') !== 'true') {
+    window.location.href = 'login.html';
+} else {
+    // Safe to load components
+    loadPhotos();
+}
 
-document.getElementById('logout-link').addEventListener('click', () => {
-    signOut(auth).then(() => {
-        window.location.href = 'login.html';
-    });
+document.getElementById('logout-link').addEventListener('click', (e) => {
+    e.preventDefault();
+    sessionStorage.removeItem('admin_auth');
+    window.location.href = 'login.html';
 });
 
 async function loadPhotos() {
