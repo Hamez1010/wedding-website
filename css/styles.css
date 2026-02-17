@@ -1,7 +1,11 @@
 :root {
-  --primary: #213d3c;
-  --background: #213d3c;
+  --primary: #213d3c;    /* deep olive */
+  --secondary: #7E8C54;  /* muted green */
+  --highlight: #bfa05c;  /* previous gold color */
+  --accent: #C9A0DC;     /* lavender accent */
+  --background:  #213d3c; /* background */
   --light: #ffffff;
+  --text: #222222;
 }
 
 * {
@@ -15,7 +19,7 @@ body {
   color: var(--text);
   background: var(--background);
   line-height: 1.6;
-  padding-top: 60px;
+  padding-top: 52px; /* reduced to match smaller nav */
 }
 
 /* NAVIGATION */
@@ -31,7 +35,7 @@ nav {
   justify-content: center;
   /* Center content on desktop */
   align-items: center;
-  min-height: 60px;
+  min-height: 48px; /* smaller vertical size */
 }
 
 .menu-toggle {
@@ -52,7 +56,7 @@ nav ul {
   list-style: none;
   display: flex;
   justify-content: center;
-  padding: 15px 0;
+  padding: 10px 0; /* reduced padding */
   margin: 0;
   transition: max-height 0.3s ease-in-out;
 }
@@ -65,7 +69,7 @@ nav li {
   nav {
     justify-content: space-between;
     /* Space for logo if we had one, or just keeps toggle right */
-    padding: 0 20px;
+    padding: 0 16px; /* slightly tighter */
   }
 
   .menu-toggle {
@@ -76,7 +80,7 @@ nav li {
     display: none;
     flex-direction: column;
     position: absolute;
-    top: 60px;
+    top: 48px; /* match reduced nav height */
     left: 0;
     width: 100%;
     background: rgba(255, 255, 255, 0.98);
@@ -100,7 +104,7 @@ nav li {
 
   nav a {
     display: block;
-    padding: 15px;
+    padding: 10px 12px; /* smaller tap area but still accessible */
   }
 }
 
@@ -113,6 +117,37 @@ nav a {
 
 nav a:hover {
   color: var(--primary);
+}
+
+/* Theme utility classes */
+.accent { color: var(--highlight); }
+.accent-bg { background-color: var(--highlight); color: var(--light); }
+.text-on-dark { color: var(--light); }
+
+
+/* Mobile tweaks: smaller, slightly transparent nav */
+@media (max-width: 600px) {
+  body { padding-top: 44px; }
+
+  nav ul {
+    padding: 6px 0; /* reduce vertical space */
+  }
+
+  nav li {
+    margin: 0 8px;
+  }
+
+  nav a {
+    font-size: 0.92rem;
+    color: var(--text);
+    padding: 8px 10px; /* comfortable touch target */
+  }
+
+  /* make nav a little more see-through on mobile */
+  nav {
+    background: rgba(255, 255, 255, 0.82);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
 }
 
 /* HERO */
@@ -363,7 +398,7 @@ copyright {
 .countdown-number {
   font-size: 2.5rem;
   font-weight: 600;
-  color: #bfa05c;
+  color: var(--highlight);
   line-height: 1;
 }
 

@@ -16,15 +16,19 @@ async function loadGallery() {
 
         const querySnapshot = await getDocs(q);
 
-        // If no photos yet, show a message
+        // If no photos yet, show a message only on the dedicated Gallery page
         if (querySnapshot.empty) {
-            console.log("Check back after the wedding for photos.");
-            const emptyMsg = document.createElement('p');
-            emptyMsg.textContent = "Check back after the wedding for guest photos.";
-            emptyMsg.style.textAlign = "center";
-            emptyMsg.style.gridColumn = "1 / -1"; // Span all columns
-            emptyMsg.style.color = "white";
-            galleryGrid.appendChild(emptyMsg);
+            console.log("No guest photos available yet.");
+            const href = window.location.href.toLowerCase();
+            // Show the friendly message only when on Gallery.html (dedicated guest gallery)
+            if (href.includes('gallery.html')) {
+                const emptyMsg = document.createElement('p');
+                emptyMsg.textContent = "Check back after the wedding for guest photos.";
+                emptyMsg.style.textAlign = "center";
+                emptyMsg.style.gridColumn = "1 / -1"; // Span all columns
+                emptyMsg.style.color = "white";
+                galleryGrid.appendChild(emptyMsg);
+            }
             return;
         }
 

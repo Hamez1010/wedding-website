@@ -19,23 +19,25 @@
 <body>
   <!-- RSVP -->
   <section class="section rsvp" id="rsvp">
-    <h2 style="color: #bfa05c;">RSVP</h2>
-    <p style="padding-bottom: 20px; color: white;" class="rsvp-note">Kindly respond by April 1st, 2027</p>
+    <h2 class="accent">RSVP</h2>
+    <p style="padding-bottom: 20px;" class="rsvp-note text-on-dark">Kindly respond by April 1st, 2027</p>
 
     <form class="rsvp-form" action="https://formspree.io/f/xzdznowb" method="POST">
       <input type="text" name="name" placeholder="Your Name" required>
       <input type="email" name="email" placeholder="Email Address" required>
       <input type="number" name="party" placeholder="Number in Party" required>
-      <input type="comment" name="further info"
-        placeholder="Dietary requirements etc. (please specify which guest your comments pertain to)" required>
+      
+      <div id="guest-details"></div>
+
+      <input name="additional_notes" placeholder="Any additional notes (optional) - e.g. accessibility"></input>
 
       <div class="radio-group">
-        <h4 style="color: white;">Will you be attending?</h4>
+        <h4 class="text-on-dark">Will you be attending?</h4>
         <label><input type="radio" name="attend" value="yes" required> Yes</label>
         <label><input type="radio" name="attend" value="no"> No</label>
       </div>
 
-      <div id="guest-details"></div>
+
 
       <button type="submit" class="btn">Submit</button>
     </form>
@@ -54,15 +56,16 @@
           const div = document.createElement('div');
           div.className = 'guest-item';
           div.innerHTML = `
-            <input type="text" name="guest_name_${i}" placeholder="Guest ${i} Name" required>
-            <select name="guest_meal_${i}" required>
-              <option value="">Select Meal</option>
+            <input type="text" name="guest_${i}_name" placeholder="Guest ${i} Name" required>
+            <select name="guest_${i}meal" required>
+              <option value="">Select Meal</option> //CHANGE ONCE MEAL PLAN IS DECIDED
               <option value="chicken">Chicken</option>
               <option value="beef">Beef</option>
               <option value="fish">Fish</option>
               <option value="vegetarian">Vegetarian</option>
               <option value="vegan">Vegan</option>
             </select>
+            <input type="text" name="guest_${i}_diet" placeholder="Dietary requirements ${i} (allergies, intolerances)" />
           `;
           guestDetails.appendChild(div);
         }

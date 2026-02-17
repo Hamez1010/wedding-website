@@ -13,12 +13,16 @@ const statusMessage = document.getElementById('status-message');
 
 let selectedFiles = [];
 
+// Grab theme highlight from CSS variables (falls back to a hex if not set)
+const _cssHighlight = getComputedStyle(document.documentElement).getPropertyValue('--highlight') || '#DCA1A1';
+const highlightColor = _cssHighlight.trim() || '#DCA1A1';
+
 // Drag and drop handlers
 dropArea.addEventListener('click', () => fileInput.click());
 
 dropArea.addEventListener('dragover', (e) => {
     e.preventDefault();
-    dropArea.style.borderColor = '#bfa05c';
+    dropArea.style.borderColor = highlightColor;
     dropArea.style.backgroundColor = '#fcfcfc';
 });
 
